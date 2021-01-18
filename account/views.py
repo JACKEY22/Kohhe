@@ -1,5 +1,6 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
+from django.urls import reverse
 from account.models import HelloWorld
 # Create your views here.
 
@@ -9,11 +10,15 @@ def hello_world(request):
     if request.method == "POST":
         temp = request.POST.get('hello_world_input')
 
-        HelloWorld_obj = HelloWorld()
-        HelloWorld_obj.text = temp
-        HelloWorld_obj.save()
+        hello_world = HelloWorld()
+        hello_world.text = temp
+        hello_world.save()
 
-        return render(request, 'account/hello_world.html', context={'hello_world_output':HelloWorld_obj})
+        hello_world_list = HelloWorld.objects.all()
+
+        return HttpResponseRedirect(reverse('account:hello_world'))
 
     else:
-        return render(request, 'account/hello_world.html', context={'text':'GET METHOD!'})
+        hello_world_list = HelloWorld.objects.all()
+
+        return render(request, 'account/hello_world.html', context={'hello_world_list':hello_world_list})
