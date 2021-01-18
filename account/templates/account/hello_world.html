@@ -2,10 +2,6 @@
 {% block content %}
 
 <div style="border-radius: 1rem; margin: 2rem; text-align:center;">
-    <h1>
-        testing
-    </h1>
-
     <div>
         <form action="/account/hello_world/" method="post">
             {% csrf_token %}
@@ -18,11 +14,11 @@
         </form>
     </div>
 
-<!--    {% if hello_world_list %}-->
-<!--        {% for hello_world in hello_world_list %}-->
-<!--            <h4> {{ hello_world.text }} </h4>-->
-<!--        {% endfor %}-->
-<!--    {% endif %}-->
+    {% if hello_world_list %}
+        {% for hello_world in hello_world_list %}
+            <h4> {{ hello_world.text }} </h4>
+        {% endfor %}
+    {% endif %}
 
 </div>
 {% endblock %}
