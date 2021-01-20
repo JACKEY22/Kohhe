@@ -3,13 +3,30 @@
 
 <div>
     <div style="text-align: center;max-width: 300px;margin: 4rem auto;">
-        <p>
-        {{ user.date_joined }}
-        </p>
-        <h2>
-        {{ user.username }}
-        </h2>
+        {% if user.profile %}
+            <img src="{{ user.profile.image.url }}" alt="" style="height:10rem; width:10rem; border-radius:10rem;margin-bottom:1rem">
+            <div>
+                <h2 style="margin-bottom:1rem">{{ user.profile.nickname }}
+                <a href="{% url 'profile:update' pk=user.profile.pk %}" style="font-size:1rem">
+                    <span>Edit</span>
+                </a>
+                </h2>
+            </div>
+            <h5>{{ user.profile.message }}</h5>
+            <a href="{% url 'account:update' pk=user.pk %}">
+                <span>Edit Account</span>
+            </a>
+            <a href="{% url 'account:delete' pk=user.pk %}">
+                <span>Delete Account</span>
+            </a>
+        {% else %}
+            <a href="{% url 'profile:create' %}">
+                <h2>Create Profile</h2>
+            </a>
+        {% endif %}
+
     </div>
+
 </div>
 
 {% endblock %}

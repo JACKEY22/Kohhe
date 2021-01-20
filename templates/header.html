@@ -13,17 +13,12 @@
             </a>
         {% else %}
             <a href="{% url 'account:detail' pk=user.pk %}">
-                <span>{{ user }}</span>
-            </a>
-            <a href="{% url 'account:update' pk=user.pk %}">
-                <span>Edit Profile</span>
-            </a>
-            <a href="{% url 'account:delete' pk=user.pk %}">
-                <span>Delete Account</span>
+                <span>Profile</span>
             </a>
             <a href="{% url 'account:logout' %}?next={{ request.path }}">
                 <span>Log Out</span>
             </a>
+
         {% endif %}
 
 <!--        <span>nav3</span>-->

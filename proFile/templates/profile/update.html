@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+<div style="text-align:center;text-align: center; max-width: 300px; margin: 4rem auto;">
+    <h4>{{ user.username }}</h4>
+    <form action="{% url 'profile:update' pk=profile.pk %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <input type="submit" class="btn btn-primary" value="submit">
+    </form>
+</div>
+
+{% endblock %}

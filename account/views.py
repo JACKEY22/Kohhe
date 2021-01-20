@@ -7,12 +7,12 @@ from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
 
-from account.decorators import ownership_required
+from account.decorators import login_ownership_required
 from account.models import HelloWorld
 # Create your views here.
 from account.forms import AccountUpdateFrom
 
-permission = [login_required, ownership_required]
+permission = [login_required, login_ownership_required]
 
 @login_required
 def hello_world(request):
