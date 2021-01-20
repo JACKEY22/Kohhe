@@ -1,6 +1,12 @@
 from django.urls import path
 from django.views.generic import TemplateView
 
+from article.views import ArticleCreateView, ArticleListView
+
+app_name = 'article'
 urlpatterns = [
-    path('list/', TemplateView.as_view(template_name='article/list.html'), name='list'),
+
+    path('list/', ArticleListView.as_view(), name='list'),
+    path('create/', ArticleCreateView.as_view(), name='create'),
+
 ]

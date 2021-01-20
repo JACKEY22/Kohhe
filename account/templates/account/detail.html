@@ -2,24 +2,30 @@
 {% block content %}
 
 <div>
-    <div style="text-align: center;max-width: 300px;margin: 4rem auto;">
+    <div style="text-align:center;max-width: 300px;margin: 4rem auto;">
         {% if target_user.profile %}
-            <img src="{{ target_user.profile.image.url }}" alt="" style="height:10rem; width:10rem; border-radius:10rem;margin-bottom:1rem">
-            <h2 style="margin-bottom:1rem">{{ target_user.profile.nickname }}
-            {% if target_user == user %}
-                <a href="{% url 'profile:update' pk=user.profile.pk %}" style="font-size:1rem">
-                    <span>Edit</span>
-                </a>
-            {% endif %}
+            <a href="{% url 'profile:update' pk=target_user.profile.pk %}" style="font-size:1rem">
+                <img src="{{ target_user.profile.image.url }}" alt="" style="height:10rem; width:10rem; border-radius:10rem;margin-bottom:1rem">
+            </a>
+
+            <h2 style="margin-bottom:1rem">
+                {{ target_user.profile.nickname }}
             </h2>
+
+
             <h5>{{ target_user.profile.message }}</h5>
             {% if target_user == user %}
-                <a href="{% url 'account:update' pk=user.pk %}" style="font-size:1rem">
-                    <span>Edit Account</span>
+
+                <a href="{% url 'article:create' %}" class="btn btn-primary col-12 mt-3">
+                    Upload
                 </a>
-                <a href="{% url 'account:delete' pk=user.pk %}" style="font-size:1rem">
-                    <span>Delete Account</span>
+                <a href="{% url 'account:update' pk=user.pk %}" class="btn btn-primary col-12 mt-3" >
+                    Forgot Password
                 </a>
+                <a href="{% url 'account:delete' pk=user.pk %}" class="btn btn-danger col-12 mt-3">
+                    Delete Account
+                </a>
+
             {% endif %}
         {% else %}
             {% if target_user == user %}

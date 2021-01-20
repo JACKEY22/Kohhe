@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+
+<div class="map-container mb-3" style="align:center; display:flex;">
+    <div id="map" style="width:70rem; height:30rem; border-radius:2rem; margin:5rem auto"></div>
+</div>
+
+
+<script>
+
+var mapOptions = {
+<!--    center: new naver.maps.LatLng(37.3595704, 127.105399),-->
+    zoom: 16
+};
+
+var map = new naver.maps.Map('map', mapOptions);
+
+</script>
+
+{% endblock %}
+
