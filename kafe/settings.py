@@ -141,7 +141,7 @@ STATICFILES_DIRS = [
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'mediafiles')
 
-LOGIN_REDIRECT_URL = reverse_lazy('account:hello_world')
-LOGOUT_REDIRECT_URL = reverse_lazy('account:login')
-# LOGIN_REDIRECT_URL = '/'
-# LOGOUT_REDIRECT_URL = '/'
+# LOGIN_REDIRECT_URL = reverse_lazy('account:hello_world')
+# LOGOUT_REDIRECT_URL = reverse_lazy('account:login')
+LOGIN_REDIRECT_URL = '/accounts'
+LOGOUT_REDIRECT_URL = '/accounts'

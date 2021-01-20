@@ -14,7 +14,6 @@ from account.forms import AccountUpdateFrom
 
 permission = [login_required, login_ownership_required]
 
-@login_required
 def hello_world(request):
 
     if request.method == "POST":
@@ -34,16 +33,17 @@ def hello_world(request):
 
         return render(request, 'account/hello_world.html', context={'hello_world_list':hello_world_list})
 
+# after signing up, set log in status!!
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
     success_url = reverse_lazy('account:hello_world')
     template_name = 'account/create.html'
 
-@method_decorator(permission, 'get')
 class AccountDetailView(DetailView):
     model = User
     template_name = 'account/detail.html'
+    context_object_name = 'target_user'
 
 @method_decorator(permission, 'get')
 @method_decorator(permission, 'post')
@@ -70,4 +70,5 @@ class AccountDeleteView(DeleteView):
     model = User
     success_url = reverse_lazy('account:login')
     template_name = 'account/delete.html'
+
 

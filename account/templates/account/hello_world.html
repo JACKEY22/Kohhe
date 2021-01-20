@@ -5,6 +5,7 @@
     <div>
         <form action="/account/hello_world/" method="post">
             {% csrf_token %}
+            Map
             <div>
                 <input type="text" name="hello_world_input">
             </div>
@@ -13,12 +14,6 @@
             </div>
         </form>
     </div>
-
-    {% if hello_world_list %}
-        {% for hello_world in hello_world_list %}
-            <h4> {{ hello_world.text }} </h4>
-        {% endfor %}
-    {% endif %}
 
 </div>
 {% endblock %}
