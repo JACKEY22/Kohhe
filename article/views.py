@@ -58,6 +58,9 @@ class ArticleDeleteView(DeleteView):
     model = Article
     template_name = 'article/delete.html'
     context_object_name = 'target_article'
-    success_url = reverse_lazy('article:list')
+    success_url = reverse_lazy('account:detail')
+
+    def get_success_url(self):
+        return reverse('account:detail', kwargs={'pk':self.object.writer.pk})
 
 

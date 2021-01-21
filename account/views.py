@@ -37,7 +37,7 @@ def hello_world(request):
 class AccountCreateView(CreateView):
     model = User
     form_class = UserCreationForm
-    success_url = reverse_lazy('account:hello_world')
+    success_url = reverse_lazy('account:login')
     template_name = 'account/create.html'
 
 class AccountDetailView(DetailView):
@@ -50,8 +50,10 @@ class AccountDetailView(DetailView):
 class AccountUpdateView(UpdateView):
     model = User
     form_class = AccountUpdateFrom
-    success_url = reverse_lazy('account:hello_world')
     template_name = 'account/update.html'
+
+    def get_success_url(self):
+        return reverse_lazy('account:detail', kwargs={'pk':self.object.pk})
 
     # def get(self, *args, **kwargs):
     #     if self.request.user.is_authenticated and self.get_object() == self.request.user:

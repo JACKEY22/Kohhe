@@ -60,7 +60,7 @@
     {% if target_user.article %}
         {% for article in target_user.article.all %}
         <div class="item">
-            <img src=" {{ article.image.url }}">
+            <a href="{% url 'article:detail' pk=article.pk %}"><img src=" {{ article.image.url }}"></a>
         </div>
         {% endfor %}
     {% endif %}
