@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'proFile',
     'article',
     'home',
+    'comment',
 ]
 
 MIDDLEWARE = [

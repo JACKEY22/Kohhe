@@ -18,15 +18,15 @@ from django.conf.urls.static import static
 from django.contrib import admin
 from django.urls import path, include
 
-app_name = 'kohhe'
-
 urlpatterns = [
 
     path('admin/', admin.site.urls),
 
     path('', include('home.urls')),
-    path('accounts/', include('account.urls')),
-    path('profiles/', include('proFile.urls')),
-    path('articles/', include('article.urls')),
+    path('account/', include('account.urls')),
+    path('profile/', include('proFile.urls')),
+    path('article/', include('article.urls')),
+    path('comment/', include('comment.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
