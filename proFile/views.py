@@ -13,7 +13,7 @@ from proFile.models import Profile
 class ProfileCreateView(CreateView):
     model = Profile
     form_class = ProfileCreateForm
-    success_url = reverse_lazy('account:hello_world')
+    success_url = reverse_lazy('home:home')
     template_name = 'profile/create.html'
 
     def form_valid(self, form):
