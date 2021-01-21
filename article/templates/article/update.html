@@ -7,7 +7,7 @@
     <form action="{% url 'article:update' pk=target_article.pk %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <input type="submit" class="btn btn-primary" value="submit">
+        <input type="submit" class="btn btn-primary col-12 mb-3 mt-3" value="submit">
     </form>
 </div>
 

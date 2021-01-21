@@ -6,7 +6,7 @@
     <form action="{% url 'account:create' %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <input type="submit" class="btn btn-primary" value="create">
+        <input type="submit" class="btn btn-primary col-12 mt-2 mb-2" value="create">
     </form>
 </div>
 

@@ -6,7 +6,7 @@
     <form action="{% url 'account:update' pk=user.pk %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <input type="submit" class="btn btn-primary" value="submit">
+        <input type="submit" class="btn btn-primary col-12 mt-3 mb-3" value="submit">
     </form>
 </div>
 

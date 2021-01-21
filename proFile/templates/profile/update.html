@@ -7,7 +7,7 @@
     <form action="{% url 'profile:update' pk=profile.pk %}" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         {% bootstrap_form form %}
-        <input type="submit" class="btn btn-primary" value="submit">
+        <input type="submit" class="btn btn-primary col-12 mb-3 mt-3" value="submit">
     </form>
 </div>
 
