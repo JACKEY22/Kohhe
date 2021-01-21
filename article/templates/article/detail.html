@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    <div style="text-align:center;">
+        <h1>
+            {{ target_article.title }}
+        </h1>
+        <img src="{{ target_article.image.url }}">
+        <p>
+            {{ target_article.content }}
+        </p>
+        <h5>
+            {{ target_article.writer }}
+        </h5>
+    </div>
+    {% if target_article.writer == request.user %}
+        <div style="text-align:center">
+            <a href="{% url 'article:update' pk=target_article.pk %}" class="btn btn-primary col-2 mt-2 mb-2">Edit</a>
+        </div>
+        <div style="text-align:center">
+            <a href="{% url 'article:delete' pk=target_article.pk %}" class="btn btn-danger col-2 mt-2 mb-2">Delete</a>
+        </div>
+    {% endif %}
+</div>
+
+{% endblock %}

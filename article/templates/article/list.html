@@ -20,14 +20,55 @@
 </style>
 
     <div class="container" >
-        {% for article in article_list %}
-          <a href="{% url 'account:detail' pk=article.writer.pk %}">
-              <div class="item1">
-                <img src="{{ article.image.url }}">
-              </div>
-          </a>
-        {% endfor %}
+        <div>
+            <img src="https://picsum.photos/280/120">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/400">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/300">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/220">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/250">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/350">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/100">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/200">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/280">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/600">
+        </div>
+        <div>
+            <img src="https://picsum.photos/280/150">
+        </div>
+
+
+<!--        {% for article in article_list %}-->
+<!--          <a href="{% url 'account:detail' pk=article.writer.pk %}">-->
+<!--              <div class="item1">-->
+<!--                <img src="{{ article.image.url }}">-->
+<!--              </div>-->
+<!--          </a>-->
+<!--        {% endfor %}-->
+
     </div>
+
+    <div style="text-align:center;">
+        <a href="{% url 'article:create' %}" class="btn btn-primary col-2 mt-3 mb-3">Upload</a>
+    </div>
+
 
 <script src="{% static 'js/magicgrid.js' %}"></script>
 

@@ -10,10 +10,15 @@ Nav	- log in
 	- Log out   
 
 ==============================
+	  
+map	- show current location and nearby cafes / within 5km
 
-map	* show current location and nearby cafes / within 5km
-	* click - shop info - photos
-	 
+	  naver-cafe-loc -> marker
+	  google-loc -> center-loc
+	  zoom 
+	  
+	* click - move shop info(profile) or show info photos
+	   
 ============================== 
 
 shop	
@@ -22,9 +27,9 @@ Info	- business day(time)
 	- instagram
 	
 	 	
-	* order and pay ( status )
+	* order and pay ( status ) import
 	- notice
-	- availabel seats 
+	- availabel 
 	
 ==============================
 

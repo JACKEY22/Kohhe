@@ -9,7 +9,8 @@ from proFile.decorators import profile_ownership_required
 from proFile.forms import ProfileCreateForm
 from proFile.models import Profile
 
-
+@method_decorator(profile_ownership_required, 'get')
+@method_decorator(profile_ownership_required, 'post')
 class ProfileCreateView(CreateView):
     model = Profile
     form_class = ProfileCreateForm

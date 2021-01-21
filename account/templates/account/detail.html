@@ -1,5 +1,23 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
+
+<style>
+
+    .container div {
+      width: 280px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 8px;
+    }
+    .container img {
+        width = 100%;
+        height = 100%;
+    }
+
+</style>
 
 <div>
     <div style="text-align:center;max-width: 300px;margin: 4rem auto;">
@@ -16,9 +34,6 @@
             <h5>{{ target_user.profile.message }}</h5>
             {% if target_user == user %}
 
-                <a href="{% url 'article:create' %}" class="btn btn-primary col-12 mt-3">
-                    Upload
-                </a>
                 <a href="{% url 'account:update' pk=user.pk %}" class="btn btn-primary col-12 mt-3" >
                     Forgot Password
                 </a>
@@ -40,5 +55,17 @@
     </div>
 
 </div>
+
+<div class="container" >
+    {% if target_user.article %}
+        {% for article in target_user.article.all %}
+        <div class="item">
+            <img src=" {{ article.image.url }}">
+        </div>
+        {% endfor %}
+    {% endif %}
+</div>
+
+<script src="{% static 'js/magicgrid.js' %}"></script>
 
 {% endblock %}
