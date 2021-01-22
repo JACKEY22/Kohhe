@@ -3,14 +3,22 @@
 {% block content %}
 
 <style>
+    .container {
+        padding:0;
+        margin:0px auto;
+    }
 
     .container div {
       width: 250px;
-      background-color: antiquewhite;
       display: flex;
       justify-content: center;
       align-items: center;
       border-radius: 8px;
+    }
+
+    .container a {
+        width:40%;
+        max-width:250px;
     }
 
     .container img {
@@ -22,7 +30,6 @@
 
     {% if article_list %}
     <div class="container" >
-
         {% for article in article_list %}
           <a href="{% url 'article:detail' pk=article.pk %}">
               {% include 'snippets/card.html' with article=article %}
@@ -30,6 +37,8 @@
         {% endfor %}
 
     </div>
+
+
     {% else %}
     <div style="text-align:center;">
         <h1>No Articles Yet!</h1>
@@ -37,9 +46,8 @@
     {% endif %}
 
 
-
     <div style="text-align:center;">
-        <a href="{% url 'article:create' %}" class="btn btn-primary col-2 mt-3 mb-3">Upload</a>
+        <a href="{% url 'article:create' %}" class="btn btn-primary mt-3 mb-3">Upload</a>
     </div>
 
 <script src="{% static 'js/magicgrid.js' %}"></script>

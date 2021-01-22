@@ -4,11 +4,14 @@ from django.shortcuts import render
 # Create your views here.
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DeleteView
 
 from article.models import Article
+from comment.decorators import comment_ownership_required
 from comment.forms import CommentCreateForm
 from comment.models import Comment
+
+permission = [login_required, comment_ownership_required]
 
 @method_decorator(login_required(login_url='account:login'), 'get')
 @method_decorator(login_required(login_url='account:login'), 'post')
@@ -25,5 +28,16 @@ class CommentCreateView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('article:detail', kwargs={'pk':self.object.article.pk})
+
+@method_decorator(permission, 'get')
+@method_decorator(permission, 'post')
+class CommentDeleteView(DeleteView):
+    model = Comment
+    template_name = 'comment/delete.html'
+    context_object_name = 'target_comment'
+
+    def get_success_url(self):
+        return reverse_lazy('article:detail', kwargs={'pk':self.object.article.pk})
+
 
 

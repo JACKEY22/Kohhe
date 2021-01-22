@@ -1,0 +1,19 @@
+
+<div style="border:1px solid; border-radius:8px; border-color:#bbb; text-align:left; padding:2%; margin:0.5rem 0;">
+    <div>
+        {{ comment.content }}
+    </div>
+    <div style="text-align:right;">
+        <strong>{{ comment.writer.profile.nickname }}</strong>
+        &nbsp&nbsp&nbsp
+        {{ comment.created_at }}
+    </div>
+    {% if comment.writer == request.user %}
+    <div style="text-align:right;">
+        <form action="{% url 'comment:delete' pk=comment.pk %}" method="post">
+            {% csrf_token %}
+            <input type="submit" class="btn btn-danger mt-1" value="Delete">
+        </form>
+    </div>
+    {% endif %}
+</div>

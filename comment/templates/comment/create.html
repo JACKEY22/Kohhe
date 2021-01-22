@@ -2,7 +2,7 @@
 {% load bootstrap4 %}
 {% block content %}
 
-<div style="text-align:center; max-width:300px; margin:4rem auto;">
+<div style="text-align:center; max-width:300px; margin:2rem auto;">
     <form action="{% url 'comment:create' %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
