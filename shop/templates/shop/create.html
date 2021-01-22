@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content%}
+
+<div style="max-width: 300px; margin:1.5rem auto;">
+    <h4>Create Shop</h4>
+    <div>
+        <form action="{% url 'shop:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-primary col-12 mt-3" value="Create">
+        </form>
+    </div>
+</div>
+
+{% endblock %}

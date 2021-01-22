@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+    {% for shop in shop_list %}
+    <a href="{% url 'shop:detail' pk=shop.pk %}">
+        <img src="{{ shop.image.url }}">
+    </a>
+
+    {% endfor %}
+</div>
+
+{% endblock %}
