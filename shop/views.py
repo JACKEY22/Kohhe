@@ -6,7 +6,9 @@ from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, DetailView
+from django.views.generic.list import MultipleObjectMixin
 
+from article.models import Article
 from shop.forms import ShopCreateForm
 from shop.models import Shop
 
@@ -32,11 +34,15 @@ class ShopListView(ListView):
     context_object_name = 'shop_list'
     paginate_by = 10
 
-class ShopDetailView(DetailView):
+class ShopDetailView(DetailView, MultipleObjectMixin):
     model = Shop
     template_name = 'shop/detail.html'
     context_object_name = 'target_shop'
 
+    paginate_by = 10
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(shop=self.get_object())
+        return super(ShopDetailView, self).get_context_data(object_list=object_list, **kwargs)
 
 
 

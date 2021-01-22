@@ -9,6 +9,10 @@
         <p> {{ target_shop.address }} </p>
         <p> {{ target_shop.info }} </p>
     </div>
+    <div>
+        {% include 'snippets/list_fragment.html' with article_list=object_list %}
+    </div>
+
 </div>
 
 {% endblock %}

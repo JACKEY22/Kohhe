@@ -6,11 +6,13 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, DetailView, UpdateView, DeleteView
+from django.views.generic.list import MultipleObjectMixin
 
 from account.decorators import login_ownership_required
 from account.models import HelloWorld
 # Create your views here.
 from account.forms import AccountUpdateFrom
+from article.models import Article
 
 permission = [login_required, login_ownership_required]
 
@@ -21,10 +23,15 @@ class AccountCreateView(CreateView):
     success_url = reverse_lazy('account:login')
     template_name = 'account/create.html'
 
-class AccountDetailView(DetailView):
+class AccountDetailView(DetailView, MultipleObjectMixin):
     model = User
     template_name = 'account/detail.html'
     context_object_name = 'target_user'
+    paginate_by = 10
+
+    def get_context_data(self, **kwargs):
+        object_list = Article.objects.filter(writer=self.get_object())
+        return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
 
 @method_decorator(permission, 'get')
 @method_decorator(permission, 'post')

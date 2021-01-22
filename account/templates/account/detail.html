@@ -2,31 +2,6 @@
 {% load static %}
 {% block content %}
 
-<style>
-    .container {
-        padding:0;
-        margin:0px auto;
-    }
-
-    .container a {
-        width:40%;
-        max-width:250px;
-    }
-
-    .container div {
-      width: 250px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      border-radius: 8px;
-    }
-
-    .container img {
-      width : 100%;
-      border-radius: 8px;
-    }
-
-</style>
 <div>
     <div style="text-align:center;max-width: 300px;margin: 4rem auto;">
         {% if target_user.profile %}
@@ -64,22 +39,8 @@
 
 </div>
 
-<div class="container" >
-    {% if target_user.article %}
-        {% for article in target_user.article.all %}
-            <a href="{% url 'article:detail' pk=article.pk %}">
-                <img src=" {{ article.image.url }}">
-            </a>
-        {% endfor %}
-    {% endif %}
+<div>
+    {% include 'snippets/list_fragment.html' with article_list=object_list %}
 </div>
-
-{% if target_user == user %}
-    <div style="text-align:center;">
-        <a href="{% url 'article:create' %}" class="btn btn-primary mt-3 mb-3">Upload</a>
-    </div>
-{% endif %}
-
-<script src="{% static 'js/magicgrid.js' %}"></script>
 
 {% endblock %}
