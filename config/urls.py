@@ -1,4 +1,4 @@
-"""kafe URL Configuration
+"""config URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -21,12 +21,13 @@ from django.urls import path, include
 urlpatterns = [
 
     path('admin/', admin.site.urls),
-
     path('', include('home.urls')),
+
     path('account/', include('account.urls')),
     path('profile/', include('proFile.urls')),
     path('article/', include('article.urls')),
     path('comment/', include('comment.urls')),
+    path('shop/', include('shop.urls')),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

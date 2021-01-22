@@ -20,8 +20,17 @@
     font-family: 'Faster One', cursive;
 }
 
-a { color: black;
-text-decoration:none
+a {
+    color: black;
+    text-decoration:none;
+}
+
+.header_navbar{
+    margin: 1rem 0;
+}
+
+.header_nav {
+    margin: 0 0.5rem;
 }
 
 @media screen and (max-width: 500px) {

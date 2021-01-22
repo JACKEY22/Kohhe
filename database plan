@@ -1,0 +1,18 @@
+shop - representative photo
+     - name
+     - owner
+     - instagram address
+     - notice
+     - available seat
+
+        - business day
+     - loc      - lon lat
+                - address
+                - gu
+                - dong
+
+     - menu     -
+                - name
+                - price
+                - available
+                -

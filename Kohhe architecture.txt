@@ -29,7 +29,7 @@ Info	- business day(time)
 	 	
 	* order and pay ( status ) import
 	- notice
-	- availabel 
+	- available
 	
 ==============================
 
