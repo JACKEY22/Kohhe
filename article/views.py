@@ -5,15 +5,17 @@ from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
+from django.views.generic.edit import FormMixin
 
 from article.decorators import article_ownership_required
 from article.forms import ArticleCreateForm
 from article.models import Article
+from comment.forms import CommentCreateForm
 
-permission = [login_required, article_ownership_required]
+permission = [login_required(login_url='account:login'), article_ownership_required]
 
-@method_decorator(login_required, 'get')
-@method_decorator(login_required, 'post')
+@method_decorator(login_required(login_url='account:login'), 'get')
+@method_decorator(login_required(login_url='account:login'), 'post')
 class ArticleCreateView(CreateView):
     model = Article
     form_class = ArticleCreateForm
@@ -37,9 +39,10 @@ class ArticleListView(ListView):
     def get_queryset(self):
         return Article.objects.all()
 
-class ArticleDetailView(DetailView):
+class ArticleDetailView(DetailView, FormMixin):
     model = Article
     template_name = 'article/detail.html'
+    form_class = CommentCreateForm
     context_object_name = 'target_article'
 
 @method_decorator(permission, 'get')

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+
 {% load bootstrap4 %}
 {% block content %}
 
@@ -6,8 +6,9 @@
     <form action="{% url 'comment:create' %}" method="post">
         {% csrf_token %}
         {% bootstrap_form form %}
+
         <input type="submit" class="btn btn-primary col-12 mt-2 mb-2" value="create">
-        <input type="hidden" name="article_pk" value="">
+        <input type="hidden" name="article_pk" value="{{ article.pk }}">
     </form>
 </div>
 
