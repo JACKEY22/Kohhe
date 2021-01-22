@@ -1,13 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
 
-<div>
-    {% for shop in shop_list %}
-    <a href="{% url 'shop:detail' pk=shop.pk %}">
-        <img src="{{ shop.image.url }}">
-    </a>
+<style>
 
-    {% endfor %}
-</div>
+    .container div {
+      width: 8rem;
+      height: 2rem;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+</style>
+
+    {% if shop_list %}
+    <div class="container" >
+        {% for shop in shop_list %}
+          <a href="{% url 'shop:detail' pk=shop.pk %}">
+              {% include 'snippets/card_shop.html' with shop=shop %}
+          </a>
+        {% endfor %}
+    </div>
+
+
+    {% else %}
+    <div style="text-align:center;">
+        <h1>No Shops Yet!</h1>
+    </div>
+    {% endif %}
+
+
+    <div style="text-align:center;">
+        <a href="{% url 'shop:create' %}" class="btn btn-primary mt-3 mb-3">Enroll</a>
+    </div>
+
+<script src="{% static 'js/magicgrid.js' %}"></script>
+
 
 {% endblock %}

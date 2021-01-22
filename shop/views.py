@@ -35,7 +35,6 @@ class ShopListView(ListView):
 class ShopDetailView(DetailView):
     model = Shop
     template_name = 'shop/detail.html'
-    # form_class = ShopCreateForm
     context_object_name = 'target_shop'
 
 

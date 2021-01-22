@@ -1,12 +1,14 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<div style="text-align:center;">
-    <img src="{{ target_shop.image.url }}" style="width:10rem; height:10rem; border-radius:10rem">
-    <h2> {{ target_shop.name }} </h2>
-    <p> {{ target_shop.notice }} </p>
-    <p> {{ target_shop.address }} </p>
-    <p> {{ target_shop.info }} </p>
+<div>
+    <div style="text-align:center;">
+        <img src="{{ target_shop.image.url }}" style="width:10rem; height:10rem; border-radius:10rem">
+        <h2> {{ target_shop.name }} </h2>
+        <p> {{ target_shop.notice }} </p>
+        <p> {{ target_shop.address }} </p>
+        <p> {{ target_shop.info }} </p>
+    </div>
 </div>
 
 {% endblock %}
