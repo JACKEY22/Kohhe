@@ -5,11 +5,11 @@
     <div class="header_navbar">
 
         <a href="{% url 'shop:list' %}" class="header_nav">
-            <span>Shop</span>
+            <span>Cafe</span>
         </a>
 
-        <a href="{% url 'article:list' %}" class="header_nav">
-            <span>Articles</span>
+        <a href="{% url 'subscription:list' %}" class="header_nav">
+            <span>Post</span>
         </a>
 
         {% if not user.is_authenticated %}

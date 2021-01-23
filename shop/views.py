@@ -47,10 +47,11 @@ class ShopDetailView(DetailView, MultipleObjectMixin):
         shop = self.object
         user = self.request.user
         object_list = Article.objects.filter(shop=self.get_object())
-        subscription = 0
 
         if user.is_authenticated:
             subscription = Subscription.objects.filter(user=user, shop=shop)
+        else:
+            subscription = None
 
         return super(ShopDetailView, self).get_context_data(object_list=object_list,
                                                             subscription=subscription,
