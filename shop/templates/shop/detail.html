@@ -2,13 +2,27 @@
 {% block content %}
 
 <div>
-    <div style="text-align:center;">
+    <div style="text-align:center; margin:3rem 0;">
         <img src="{{ target_shop.image.url }}" style="width:10rem; height:10rem; border-radius:10rem">
         <h2> {{ target_shop.name }} </h2>
         <p> {{ target_shop.notice }} </p>
         <p> {{ target_shop.address }} </p>
         <p> {{ target_shop.info }} </p>
+
+
+        {% if not subscription %}
+        <a href="{% url 'subscription:subscribe' %}?shop_pk={{ target_shop.pk }}" class="btn btn-primary ">
+            Follow
+        </a>
+        {% else %}
+        <a href="{% url 'subscription:subscribe' %}?shop_pk={{ target_shop.pk }}" class="btn btn-primary ">
+            Unfollow
+        </a>
+        {% endif %}
+
     </div>
+
+
     <div>
         {% include 'snippets/list_fragment.html' with article_list=object_list %}
     </div>

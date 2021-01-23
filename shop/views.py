@@ -11,6 +11,8 @@ from django.views.generic.list import MultipleObjectMixin
 from article.models import Article
 from shop.forms import ShopCreateForm
 from shop.models import Shop
+from subscription.models import Subscription
+
 
 @method_decorator(login_required,'get')
 @method_decorator(login_required,'post')
@@ -40,9 +42,22 @@ class ShopDetailView(DetailView, MultipleObjectMixin):
     context_object_name = 'target_shop'
 
     paginate_by = 10
+
     def get_context_data(self, **kwargs):
+        shop = self.object
+        user = self.request.user
         object_list = Article.objects.filter(shop=self.get_object())
-        return super(ShopDetailView, self).get_context_data(object_list=object_list, **kwargs)
+        subscription = 0
+
+        if user.is_authenticated:
+            subscription = Subscription.objects.filter(user=user, shop=shop)
+
+        return super(ShopDetailView, self).get_context_data(object_list=object_list,
+                                                            subscription=subscription,
+                                                            **kwargs
+                                                            )
+
+
 
 
 

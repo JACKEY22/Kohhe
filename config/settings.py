@@ -56,6 +56,7 @@ INSTALLED_APPS = [
     'home',
     'comment',
     'shop',
+    'subscription',
 ]
 
 MIDDLEWARE = [
