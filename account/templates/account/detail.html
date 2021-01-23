@@ -5,9 +5,8 @@
 <div>
     <div style="text-align:center;max-width: 300px;margin: 4rem auto;">
         {% if target_user.profile %}
-            <a href="{% url 'profile:update' pk=target_user.profile.pk %}" style="font-size:1rem">
-                <img src="{{ target_user.profile.image.url }}" alt="" style="height:10rem; width:10rem; border-radius:10rem;margin-bottom:1rem">
-            </a>
+
+            <img src="{{ target_user.profile.image.url }}" alt="" style="height:10rem; width:10rem; border-radius:10rem;margin-bottom:1rem">
 
             <h2 style="margin-bottom:1rem">
                 {{ target_user.profile.nickname }}
@@ -16,12 +15,14 @@
 
             <h5>{{ target_user.profile.message }}</h5>
             {% if target_user == user %}
-
-                <a href="{% url 'account:update' pk=user.pk %}" class="btn btn-primary col-12 mt-3" >
-                    Forgot Password
+                <a href="{% url 'profile:update' pk=target_user.profile.pk %}" class="material-icons">
+                    edit
                 </a>
-                <a href="{% url 'account:delete' pk=user.pk %}" class="btn btn-danger col-12 mt-3">
-                    Delete Account
+                <a href="{% url 'account:update' pk=user.pk %}" class="material-icons" >
+                    settings
+                </a>
+                <a href="{% url 'account:delete' pk=user.pk %}" class="material-icons">
+                    delete
                 </a>
 
             {% endif %}
@@ -40,6 +41,7 @@
 </div>
 
 <div>
+    <hr>
     {% include 'snippets/list_fragment.html' with article_list=object_list %}
 </div>
 
