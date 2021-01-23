@@ -1,13 +1,14 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
-from django.urls import reverse_lazy, reverse
+from django.urls import reverse
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, UpdateView
-
 from proFile.decorators import profile_ownership_required
 from proFile.forms import ProfileCreateForm
 from proFile.models import Profile
 
+permission = [login_required(login_url='account:login'),profile_ownership_required]
+
+@method_decorator(login_required(login_url='account:login'), 'get')
 class ProfileCreateView(CreateView):
     model = Profile
     form_class = ProfileCreateForm
@@ -22,8 +23,8 @@ class ProfileCreateView(CreateView):
     def get_success_url(self):
         return reverse('account:detail', kwargs={'pk':self.object.user.pk})
 
-@method_decorator(profile_ownership_required, 'get')
-@method_decorator(profile_ownership_required, 'post')
+@method_decorator(permission, 'get')
+@method_decorator(permission, 'post')
 class ProfileUpdateView(UpdateView):
     model = Profile
     form_class = ProfileCreateForm

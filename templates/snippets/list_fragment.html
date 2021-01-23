@@ -25,27 +25,24 @@
     }
 
 </style>
-
+<div>
     {% if article_list %}
 
-    <div class="container" >
-        {% for article in article_list %}
-          <a href="{% url 'article:detail' pk=article.pk %}">
-              {% include 'snippets/card.html' with article=article %}
-          </a>
-        {% endfor %}
-    </div>
+        <div class="container" >
+            {% for article in article_list %}
+              <a href="{% url 'article:detail' pk=article.pk %}">
+                  {% include 'snippets/card.html' with article=article %}
+              </a>
+            {% endfor %}
+        </div>
 
     {% else %}
-    <div style="text-align:center;">
-        <h1>No Articles Yet!</h1>
-    </div>
+
+        <div style="text-align:center;">
+            <h2>No Articles Yet!</h2>
+        </div>
+
     {% endif %}
-
-
-    <div style="text-align:center;">
-        <a href="{% url 'article:create' %}" class="btn btn-primary mt-3 mb-3">Upload</a>
-    </div>
-
+</div>
 <script src="{% static 'js/magicgrid.js' %}"></script>
 

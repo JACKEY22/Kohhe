@@ -2,12 +2,17 @@
 {% load bootstrap4 %}
 {% block content %}
 
-<div style="text-align:center; max-width:300px; margin:4rem auto;">
-    <form action="{% url 'account:create' %}" method="post">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <input type="submit" class="btn btn-primary col-12 mt-2 mb-2" value="create">
-    </form>
+<div style="max-width:380px; margin:3rem auto;">
+    <div style="text-align:center;">
+        <h2>Create account</h2>
+    </div>
+    <div style="margin:1rem auto;">
+        <form action="{% url 'account:create' %}" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-primary col-12 mt-3" value="create">
+        </form>
+    </div>
 </div>
 
 {% endblock %}

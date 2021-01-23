@@ -2,12 +2,17 @@
 {% load bootstrap4 %}
 {% block content %}
 
-<div style="text-align:center; text-align:center; max-width: 300px; margin: 4rem auto;">
-    <form action="{% url 'article:create' %}" method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <input type="submit" class="btn btn-primary col-12 mt-3 mb-3" value="create">
-    </form>
+<div style="max-width:300px; margin:3rem auto;">
+    <div style="text-align:center;">
+        <h2>Edit Article</h2>
+    </div>
+    <div style="margin:1rem auto;">
+        <form action="{% url 'article:create' %}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <input type="submit" class="btn btn-primary col-12 mt-3" value="create">
+        </form>
+    </div>
 </div>
 
 {% endblock %}

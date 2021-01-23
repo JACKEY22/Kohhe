@@ -1,12 +1,9 @@
 
-
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.utils.decorators import method_decorator
 from django.views.generic import CreateView, ListView, DetailView, UpdateView, DeleteView
 from django.views.generic.edit import FormMixin
-
 from article.decorators import article_ownership_required
 from article.forms import ArticleCreateForm
 from article.models import Article
@@ -34,7 +31,7 @@ class ArticleListView(ListView):
     model = Article
     template_name = 'article/list.html'
     context_object_name = 'article_list'
-    paginate_by = 5
+    # paginate_by = 10
 
     def get_queryset(self):
         return Article.objects.all()
@@ -50,7 +47,7 @@ class ArticleDetailView(DetailView, FormMixin):
 class ArticleUpdateView(UpdateView):
     model = Article
     form_class = ArticleCreateForm
-    template_name = 'article/create.html'
+    template_name = 'article/update.html'
     context_object_name = 'target_article'
 
     def get_success_url(self):

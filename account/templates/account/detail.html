@@ -3,37 +3,49 @@
 {% block content %}
 
 <div>
-    <div style="text-align:center;max-width: 300px;margin: 4rem auto;">
+    <div style="max-width:300px; margin: 3rem auto;">
         {% if target_user.profile %}
 
-            <img src="{{ target_user.profile.image.url }}" alt="" style="height:10rem; width:10rem; border-radius:10rem;margin-bottom:1rem">
+            <div style="text-align:center;">
+                <img src="{{ target_user.profile.image.url }}" alt="" style="height:10rem; width:10rem; border-radius:10rem;margin-bottom:1rem">
+                <h2 style="margin-bottom:1rem">
+                    {{ target_user.profile.nickname }}
+                </h2>
+                <h5>{{ target_user.profile.message }}</h5>
+            </div>
 
-            <h2 style="margin-bottom:1rem">
-                {{ target_user.profile.nickname }}
-            </h2>
-
-
-            <h5>{{ target_user.profile.message }}</h5>
             {% if target_user == user %}
-                <a href="{% url 'profile:update' pk=target_user.profile.pk %}" class="material-icons">
-                    edit
-                </a>
-                <a href="{% url 'account:update' pk=user.pk %}" class="material-icons" >
-                    settings
-                </a>
-                <a href="{% url 'account:delete' pk=user.pk %}" class="material-icons">
-                    delete
-                </a>
-
+                <div style="text-align:center; margin:1rem auto;">
+                    <a href="{% url 'article:create' %}" class="material-icons">
+                        insert_photo
+                    </a>
+                    <a href="{% url 'profile:update' pk=target_user.profile.pk %}" class="material-icons">
+                        person
+                    </a>
+                    <a href="{% url 'shop:create' %}" class="material-icons">
+                        store
+                    </a>
+                    <a href="{% url 'account:update' pk=user.pk %}" class="material-icons" >
+                        lock
+                    </a>
+                    <a href="{% url 'account:delete' pk=user.pk %}" class="material-icons">
+                        delete
+                    </a>
+                </div>
             {% endif %}
+
         {% else %}
+
             {% if target_user == user %}
-            <a href="{% url 'profile:create' %}">
-                <h2>Create Profile</h2>
-            </a>
+                <div style="text-align:center;">
+                    <a href="{% url 'profile:create' %}">
+                        <h2>Create Profile</h2>
+                    </a>
+                </div>
             {% else %}
-            <h4>No Profile</h4>
+                <h2>No Profile</h2>
             {% endif %}
+
         {% endif %}
     <hr>
     </div>
@@ -41,7 +53,6 @@
 </div>
 
 <div>
-    <hr>
     {% include 'snippets/list_fragment.html' with article_list=object_list %}
 </div>
 

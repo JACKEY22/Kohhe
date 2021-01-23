@@ -3,6 +3,7 @@ from django.urls import path
 from account.views import AccountCreateView, AccountDetailView, AccountUpdateView, AccountDeleteView
 
 app_name='account'
+
 urlpatterns = [
 
     path('create/', AccountCreateView.as_view(), name='create'),

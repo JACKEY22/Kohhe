@@ -30,7 +30,7 @@ class SubscriptionView(RedirectView):
 
         return super(SubscriptionView, self).get(request, *args, **kwargs)
 
-
+@method_decorator(login_required(login_url='account:login'), 'get')
 class SubscriptionListView(ListView):
     model = Article
     template_name = 'subscription/list.html'
