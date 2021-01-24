@@ -9,6 +9,7 @@ from django.views.generic.list import MultipleObjectMixin
 from account.decorators import login_ownership_required
 from account.forms import AccountUpdateFrom
 from article.models import Article
+from subscription.models import Subscription
 
 permission = [login_required, login_ownership_required]
 
@@ -26,7 +27,15 @@ class AccountDetailView(DetailView, MultipleObjectMixin):
 
     def get_context_data(self, **kwargs):
         object_list = Article.objects.filter(writer=self.get_object())
-        return super(AccountDetailView, self).get_context_data(object_list=object_list, **kwargs)
+        user = self.request.user
+        target_user = self.object
+        if user.is_authenticated:
+            subscription = Subscription.objects.filter(user=user, target_user=target_user)
+        else:
+            subscription = None
+        return super(AccountDetailView, self).get_context_data(object_list=object_list,
+                                                               subscription=subscription,
+                                                               **kwargs)
 
 @method_decorator(permission, 'get')
 @method_decorator(permission, 'post')

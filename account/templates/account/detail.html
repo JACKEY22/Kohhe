@@ -32,7 +32,20 @@
                         delete
                     </a>
                 </div>
+            {% else %}
+                {% if user.is_authenticated %}
+                    {% if not subscription %}
+                        <a href="{% url 'subscription:follow' %}?target_user_pk={{ target_user.pk }}" class="btn btn-primary ">
+                            Follow
+                        </a>
+                    {% else %}
+                        <a href="{% url 'subscription:follow' %}?target_user_pk={{ target_user.pk }}" class="btn btn-primary ">
+                            Unfollow
+                        </a>
+                    {% endif %}
+                {% endif %}
             {% endif %}
+
 
         {% else %}
 

@@ -4,14 +4,6 @@
     </div>
     <div class="header_navbar">
 
-        <a href="{% url 'shop:list' %}" class="header_nav">
-            <span>Cafe</span>
-        </a>
-
-        <a href="{% url 'subscription:list' %}" class="header_nav">
-            <span>Feed</span>
-        </a>
-
         {% if not user.is_authenticated %}
             <a href="{% url 'account:login' %}?next={{ request.path }}" class="header_nav">
                 <span>Log In</span>
@@ -20,6 +12,10 @@
                 <span>Sign Up</span>
             </a>
         {% else %}
+            <a href="{% url 'subscription:list' %}" class="header_nav">
+                <span>Feed</span>
+            </a>
+
             <a href="{% url 'account:detail' pk=user.pk %}" class="header_nav">
                 <span>Profile</span>
             </a>

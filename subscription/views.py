@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
@@ -43,3 +44,20 @@ class SubscriptionListView(ListView):
         else:
             article_list = Article.objects.all()
         return article_list
+
+class SubscriptionFollowView(RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('account:detail', kwargs={'pk': self.request.GET.get('target_user_pk')})
+
+    def get(self, request, *args, **kwargs):
+
+        target_user = get_object_or_404(User, pk=self.request.GET.get('target_user_pk'))
+        user = self.request.user
+        subscription = Subscription.objects.filter(user=user, target_user=target_user)
+
+        if subscription.exists():
+            subscription.delete()
+        else:
+            Subscription(user=user, target_user=target_user).save()
+
+        return super(SubscriptionFollowView, self).get(request, *args, **kwargs)

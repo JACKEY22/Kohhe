@@ -12,5 +12,5 @@ class Article(models.Model):
     image = models.ImageField(upload_to='article/', null=False)
     created_at = models.DateField(auto_created=True, null=True)
 
-    shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, related_name='article', null=True)
+    shop = models.ForeignKey(Shop, on_delete=models.SET_NULL, related_name='article', null=True, blank=True)
 
