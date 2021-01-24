@@ -34,6 +34,7 @@
                 </div>
             {% else %}
                 {% if user.is_authenticated %}
+                    <div style="text-align:center;">
                     {% if not subscription %}
                         <a href="{% url 'subscription:follow' %}?target_user_pk={{ target_user.pk }}" class="btn btn-primary ">
                             Follow
@@ -43,6 +44,7 @@
                             Unfollow
                         </a>
                     {% endif %}
+                    </div>
                 {% endif %}
             {% endif %}
 

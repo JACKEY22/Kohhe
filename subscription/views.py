@@ -38,11 +38,9 @@ class SubscriptionListView(ListView):
     context_object_name = 'article_list'
 
     def get_queryset(self):
-        if self.request.user.is_authenticated:
-            shops = Subscription.objects.filter(user=self.request.user).values_list('shop')
-            article_list = Article.objects.filter(shop__in=shops)
-        else:
-            article_list = Article.objects.all()
+        target_user = Subscription.objects.filter(user=self.request.user).values_list('target_user')
+        article_list = Article.objects.filter(writer__in=target_user)
+
         return article_list
 
 class SubscriptionFollowView(RedirectView):
