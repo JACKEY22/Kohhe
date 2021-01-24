@@ -53,7 +53,6 @@ INSTALLED_APPS = [
     'bootstrap4',
     'proFile',
     'article',
-    'home',
     'comment',
     'shop',
     'subscription',
