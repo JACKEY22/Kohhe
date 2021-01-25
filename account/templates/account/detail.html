@@ -3,7 +3,7 @@
 {% block content %}
 
 <div>
-    <div style="max-width:300px; margin: 3rem auto;">
+    <div style="max-width:370px; margin: 3rem auto;">
         {% if target_user.profile %}
 
             <div style="text-align:center;">
@@ -22,9 +22,9 @@
                     <a href="{% url 'profile:update' pk=target_user.profile.pk %}" class="material-icons">
                         person
                     </a>
-                    <a href="{% url 'shop:create' %}" class="material-icons">
-                        store
-                    </a>
+<!--                    <a href="{% url 'shop:create' %}" class="material-icons">-->
+<!--                        store-->
+<!--                    </a>-->
                     <a href="{% url 'account:update' pk=user.pk %}" class="material-icons" >
                         lock
                     </a>

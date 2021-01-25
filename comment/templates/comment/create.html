@@ -8,9 +8,9 @@
         {% bootstrap_form form %}
 
         {% if user.is_authenticated %}
-        <input type="submit" class="btn btn-primary col-12 mt-2 mb-2" value="create">
+        <input type="submit" class="btn btn-primary col-12 mt-2 mb-2" value="comment">
         {% else %}
-        <input type="submit" class="btn btn-primary col-12 mt-2 mb-2 disabled" value="create">
+        <input type="submit" class="btn btn-primary col-12 mt-2 mb-2 disabled" value="Need to log in">
         {% endif %}
         <input type="hidden" name="article_pk" value="{{ article.pk }}">
     </form>

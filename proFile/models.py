@@ -7,5 +7,5 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile') # request.user.profile
     image = models.ImageField(upload_to='profile/', null=True) # media/profile/
     nickname = models.CharField(max_length=20, unique=True, null=True)
-    message = models.CharField(max_length=100, null=True)
+    message = models.CharField(max_length=100, null=True, verbose_name='Status Message')
     

@@ -6,7 +6,7 @@
     <div class="d-flex justify-content-end">
         <div class="badge badge-black p-2 text-left" style="color:black;">
             <a href="{% url 'account:detail' pk=comment.writer.pk %}">
-                <div class="mb-2">{{ comment.writer }}</div>
+                <div class="mb-2">{{ comment.writer.profile.nickname }}</div>
             </a>
             <div>{{ comment.created_at }}</div>
         </div>

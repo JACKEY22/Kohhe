@@ -2,7 +2,7 @@
 {% block content %}
 
 <div>
-    <div style="max-width:300px; margin:2rem auto;">
+    <div style="max-width:350px; margin:2rem auto;">
         {% if target_article.shop %}
         <h2 style="text-align:center;">
             <a href="{% url 'shop:detail' pk=target_article.shop.pk %}">{{ target_article.shop.name }}</a>
