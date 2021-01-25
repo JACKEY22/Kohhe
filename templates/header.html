@@ -5,7 +5,7 @@
     <div class="header_navbar">
 
         {% if not user.is_authenticated %}
-            <a href="{% url 'account:login' %}?next={{ request.path }}" class="header_nav">
+            <a href="{% url 'account:login' %}" class="header_nav">
                 <span>Log In</span>
             </a>
             <a href="{% url 'account:create' %}" class="header_nav">
