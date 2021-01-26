@@ -39,6 +39,19 @@ responsive web
     }
 }
 ```
+how to keep the secret key
+```
+import os, environ
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env(
+    env_file=os.path.join(BASE_DIR, '.env')
+)
+SECRET_KEY = env('SECRET_KEY')
+```
 ### Feedback
 - after singing up, users don't need to log in
 - like or recommend 
