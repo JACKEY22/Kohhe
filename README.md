@@ -3,9 +3,9 @@
 ### stack 
 - tool : pycharm,
 - develop : python, django, javascript
-- deploy : vultr, docker, mariadb,
+- deploy : vultr, docker, portainer, mariadb, nginx, gunicorn
 
-### code
+### what I learned
 mycode
 ```
 class AccountCreateView(CreateView):
@@ -38,6 +38,19 @@ responsive web
         font-size:12px;
     }
 }
+```
+how to keep the secret key
+```
+import os, environ
+env = environ.Env(
+    # set casting, default value
+    DEBUG=(bool, False)
+)
+# reading .env file
+environ.Env.read_env(
+    env_file=os.path.join(BASE_DIR, '.env')
+)
+SECRET_KEY = env('SECRET_KEY')
 ```
 ### Feedback
 - after singing up, users don't need to log in
