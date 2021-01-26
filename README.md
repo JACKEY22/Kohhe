@@ -3,7 +3,7 @@
 ### stack 
 - tool : pycharm,
 - develop : python, django, javascript
-- deploy : vultr, docker, portainer, mariadb, nginx
+- deploy : vultr, docker, portainer, mariadb, nginx, gunicorn
 
 ### what I learned
 mycode
