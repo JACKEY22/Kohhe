@@ -30,6 +30,15 @@ def signup(request):
         form = UserForm()
     return render(request, 'common/signup.html', {'form': form})
 ```
+
+responsive web
+```
+@media screen and (max-width: 500px) {
+    body {
+        font-size:12px;
+    }
+}
+```
 ### Feedback
 - after singing up, users don't need to log in
 - like or recommend 
