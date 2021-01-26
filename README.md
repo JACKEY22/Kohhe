@@ -5,7 +5,7 @@
 - develop : python, django, javascript
 - deploy : vultr, docker, portainer, mariadb, nginx
 
-### code
+### what I learned
 mycode
 ```
 class AccountCreateView(CreateView):
