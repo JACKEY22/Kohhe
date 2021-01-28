@@ -7,9 +7,9 @@
 
 ### 장고 기본적인 Workflow
 
-1.model - database 설계
-2.view  - 사용자의 요청을 처리
-3.template - 사용자에게 보여줄 화면
+    1.model - database 설계
+    2.view  - 사용자의 요청을 처리
+    3.template - 사용자에게 보여줄 화면
 
 
 
