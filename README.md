@@ -14,8 +14,9 @@
 
 
 ### what I learned
-- 자동로그인
+- 자동로그인 함수
 
+    authenticate, login함수를 사용해 
     계정을 생성한 유저를 로그온 상태로 자동으로 만들어줄 수 있다.
     ```
     def signup(request):
@@ -32,11 +33,10 @@
             form = UserForm()
         return render(request, 'common/signup.html', {'form': form})
     ```
-- 보안
-    장고에서 가본으로 제공하는 장식자 @login_required를 사용해 뷰 처리전 
-    사용자의 로그인 여부를 확인할 수 있음 (각 뷰의 함수 수정 번거러움을 덜어줌)
     
-    다른 사용자 정보에 접근을 막기위해 장식자를 만들어 사용
+- 장식자 커스텀
+
+    view단 처리전 요청을 보낸 유저와 해당 데이터의 소유자의 일치여부 확인 장식자
     ```
     def login_ownership_required(func):
         def decorated(request, *args, **kwargs):
@@ -47,21 +47,9 @@
     return decorated
     ```
     
-    장고 시크릿키를 분리해서 관리 (배포)
-    ```
-    import os, environ
-    env = environ.Env(
-        # set casting, default value
-        DEBUG=(bool, False)
-    )
-    # reading .env file
-    environ.Env.read_env(
-        env_file=os.path.join(BASE_DIR, '.env')
-    )
-    SECRET_KEY = env('SECRET_KEY')
     ```
 
-- 반응형
+- 반응형 웹 디자인
     미디어쿼리를 사용 화면의 너비가 500px이하로 작아지면 글자의 크기를 12px
     ```
     @media screen and (max-width: 500px) {
