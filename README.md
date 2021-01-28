@@ -7,9 +7,9 @@
 
 ### 장고 기본적인 Workflow
 
--   1.model - database 설계
--   2.view  - 사용자의 요청을 처리
--   3.template - 사용자에게 보여줄 화면
+1model - database 설계
+2view  - 사용자의 요청을 처리
+3template - 사용자에게 보여줄 화면
 
 
 
@@ -34,9 +34,10 @@
         return render(request, 'common/signup.html', {'form': form})
     ```
     
-- 장식자 커스텀
+- 장식자
 
-    view단 처리전 요청을 보낸 유저와 해당 데이터의 소유자의 일치여부 확인 장식자
+    view단 처리전 반복되는 로직을 구현 가능 - 코드 가독성
+    요청을 보낸 유저와 해당 데이터의 소유자의 일치여부 확인 장식자
     ```
     def login_ownership_required(func):
         def decorated(request, *args, **kwargs):
@@ -49,9 +50,11 @@
     class형 view의 decorator 사용법
     ```
     @method_decorator(decorator, 'get or post')
+    class test():
     ```
 
 - 반응형 웹 디자인
+
     미디어쿼리를 사용 화면의 너비가 500px이하로 작아지면 글자의 크기를 12px
     ```
     @media screen and (max-width: 500px) {
