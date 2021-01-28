@@ -46,7 +46,9 @@
             return func(request, *args, **kwargs)
     return decorated
     ```
-    
+    class형 view의 decorator 사용법
+    ```
+    @method_decorator(decorator, 'get or post')
     ```
 
 - 반응형 웹 디자인
