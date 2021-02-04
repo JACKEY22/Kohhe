@@ -1,16 +1,7 @@
 from .base import *
 
-env = environ.Env(
-    # set casting, default value
-    DEBUG=(bool, False)
-)
-# reading .env file
-environ.Env.read_env(
-    env_file=os.path.join(BASE_DIR, '.env')
-)
-
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env('SECRET_KEY')
+SECRET_KEY = 'kmd@5b2&mbtb5sd7jd58g=&w%q5si_bn2_&=y=9&4n=d2uq4@c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
