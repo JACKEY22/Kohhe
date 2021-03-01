@@ -64,17 +64,7 @@
         }
     }
     ```
-    
-### Feedback
-- after singing up, users don't need to log in
-- like or recommend 
-- comment update
-- unlimited scroll paging
-- bookmark cafe users frequently visit
-- order and pay on website
-- coupon
 
-### URL : -- 
 
 
 
