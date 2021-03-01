@@ -6,7 +6,11 @@
     <div class="d-flex justify-content-end">
         <div class="badge badge-black p-2 text-left" style="color:black;">
             <a href="{% url 'account:detail' pk=comment.writer.pk %}">
+                {% if comment.writer.profile.nickname %}
                 <div class="mb-2">{{ comment.writer.profile.nickname }}</div>
+                {% else %}
+                <div class="mb-2">{{ comment.writer }}</div>
+                {% endif %}
             </a>
             <div>{{ comment.created_at }}</div>
         </div>
@@ -16,7 +20,7 @@
     <div style="text-align:right;">
         <form action="{% url 'comment:delete' pk=comment.pk %}" method="post">
             {% csrf_token %}
-            <input type="submit" class="btn btn-danger mt-1" value="Delete">
+            <button type="submit" class="btn btn-outline-danger mt-1">삭제</button>
         </form>
     </div>
     {% endif %}

@@ -27,7 +27,6 @@
 </style>
 <div>
     {% if article_list %}
-
         <div class="container" >
             {% for article in article_list %}
               <a href="{% url 'article:detail' pk=article.pk %}">
@@ -37,9 +36,8 @@
         </div>
 
     {% else %}
-
         <div style="text-align:center;">
-            <h2>No Articles Yet!</h2>
+           다른 계정을 팔로우하고 원하는 게시물을 확인하세요!
         </div>
 
     {% endif %}

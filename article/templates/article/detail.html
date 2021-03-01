@@ -26,11 +26,15 @@
 
 
     {% if target_article.writer == request.user %}
-        <div style="text-align:center">
-            <a href="{% url 'article:update' pk=target_article.pk %}" class="btn btn-primary col-12 mt-2 mb-2">Edit</a>
+        <div style="text-align:right">
+            <a href="{% url 'article:update' pk=target_article.pk %}" class="material-icons mt-2 mb-2">
+                edit
+            </a>
+            <a href="{% url 'article:delete' pk=target_article.pk %}" class="material-icons">
+                delete
+            </a>
         </div>
         <div style="text-align:center">
-            <a href="{% url 'article:delete' pk=target_article.pk %}" class="btn btn-danger col-12 mt-2 mb-2">Delete</a>
         </div>
     {% endif %}
         <hr>

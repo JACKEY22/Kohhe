@@ -3,14 +3,14 @@
 
 <div style="max-width:370px; margin: 3rem auto;">
     <div style="text-align:center;">
-        <h4>Hi, {{ user.username }} </h4>
-        Once the account is deleted, <p>
-        It cannot be restored again.
+        <h4>{{ user.username }} 님</h4>
+        계정이 삭제되면 복구할 수 없습니다. <p>
+        삭제하시겠습니까?
     </div>
     <div style="margin:1rem auto;">
         <form action="{% url 'account:delete' pk=user.pk %}" method="post">
             {% csrf_token %}
-            <input type="submit" class="btn btn-danger col-12 mt-3" value="Delete">
+            <button type="submit" class="btn btn-outline-danger col-12 mt-3">삭제</button>
         </form>
     </div>
 </div>

@@ -12,13 +12,20 @@
                 <span>Sign Up</span>
             </a>
         {% else %}
+            <a href="{% url 'home' %}"  class="header_nav">Home</a>
             <a href="{% url 'subscription:list' %}" class="header_nav">
                 <span>Feed</span>
             </a>
 
+            {% if user.profile %}
             <a href="{% url 'account:detail' pk=user.pk %}" class="header_nav">
-                <span>Profile</span>
+                <span>{{user}}</span>
             </a>
+            {% else %}
+            <a href="{% url 'profile:create' %}" class="header_nav">
+                <span>{{user}}</span>
+            </a>
+            {% endif %}
             <a href="{% url 'account:logout' %}" class="header_nav">
                 <span>Log Out</span>
             </a>

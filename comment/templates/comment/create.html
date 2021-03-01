@@ -8,9 +8,9 @@
         {% bootstrap_form form %}
 
         {% if user.is_authenticated %}
-        <input type="submit" class="btn btn-primary col-12 mt-2 mb-2" value="comment">
+        <button type="submit" class="btn btn-outline-primary col-12 mt-2 mb-2" >작성</button>
         {% else %}
-        <input type="submit" class="btn btn-primary col-12 mt-2 mb-2 disabled" value="Need to log in">
+        <button type="submit" class="btn btn-primary col-12 mt-2 mb-2 disabled">로그인이 필요합니다.</button>
         {% endif %}
         <input type="hidden" name="article_pk" value="{{ article.pk }}">
     </form>

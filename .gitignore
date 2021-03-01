@@ -76,3 +76,9 @@ db.sqlite3
 .idea/
 __pycache__/
 readme.md
+
+Dockerfile
+aws_django_key.pem
+docker_compose.yml
+nginx.conf
+mediafiles/

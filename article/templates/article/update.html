@@ -4,13 +4,13 @@
 
 <div style="max-width:300px; margin:3rem auto;">
     <div style="text-align:center;">
-        <h2>Edit Article</h2>
+        <h2></h2>
     </div>
     <div style="margin:1rem auto;">
         <form action="{% url 'article:update' pk=target_article.pk %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form form %}
-            <input type="submit" class="btn btn-primary col-12 mt-3" value="Edit">
+            <button type="submit" class="btn btn-outline-primary col-12 mt-3" >변경하기</button>
         </form>
     </div>
 </div>

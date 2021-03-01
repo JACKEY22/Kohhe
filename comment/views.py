@@ -33,8 +33,6 @@ class CommentCreateView(CreateView):
 @method_decorator(permission, 'post')
 class CommentDeleteView(DeleteView):
     model = Comment
-    template_name = 'comment/delete.html'
-    context_object_name = 'target_comment'
 
     def get_success_url(self):
         return reverse_lazy('article:detail', kwargs={'pk':self.object.article.pk})
