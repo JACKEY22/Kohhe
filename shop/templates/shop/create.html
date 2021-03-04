@@ -4,13 +4,13 @@
 
 <div style="max-width: 380px; margin:1.5rem auto;">
     <div>
-        <h2>If you have your own coffee shop, </h2>
+        <h2></h2>
     </div>
     <div>
         <form action="{% url 'shop:create' %}" method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {% bootstrap_form form %}
-            <input type="submit" class="btn btn-primary col-12 mt-3" value="Create">
+            <button type="submit" class="btn btn-outline-primary col-12 mt-3">카페 등록</button>
         </form>
     </div>
 </div>

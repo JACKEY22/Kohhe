@@ -23,9 +23,12 @@
               </a>
             {% endfor %}
         </div>
+        <div style="text-align:center;">
+            <a href="{% url 'shop:create' %}" class="btn btn-outline-primary">카페 등록</a>
+        </div>
     {% else %}
         <div style="text-align:center;">
-            <h2>No Shops Yet!</h2>
+            <h2>아직 등록된 카페가 없습니다.</h2>
         </div>
     {% endif %}
 

@@ -16,12 +16,16 @@
             <a href="{% url 'subscription:list' %}" class="header_nav">
                 <span>Feed</span>
             </a>
+            <a href="{% url 'shop:list' %}" class="header_nav">
+                <span>Cafe</span>
+            </a>
 
             {% if user.profile %}
             <a href="{% url 'account:detail' pk=user.pk %}" class="header_nav">
                 <span>{{user}}</span>
             </a>
             {% else %}
+
             <a href="{% url 'profile:create' %}" class="header_nav">
                 <span>{{user}}</span>
             </a>

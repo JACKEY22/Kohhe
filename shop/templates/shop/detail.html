@@ -14,7 +14,7 @@
                 Follow
             </a>
             {% else %}
-            <a href="{% url 'subscription:subscribe' %}?shop_pk={{ target_shop.pk }}" class="btn btn-primary ">
+            <a href="{% url 'subscription:subscribe' %}?shop_pk={{ target_shop.pk }}" class="btn btn-outline-primary ">
                 Unfollow
             </a>
             {% endif %}

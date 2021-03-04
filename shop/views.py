@@ -34,14 +34,11 @@ class ShopListView(ListView):
     model = Shop
     template_name = 'shop/list.html'
     context_object_name = 'shop_list'
-    paginate_by = 10
 
 class ShopDetailView(DetailView, MultipleObjectMixin):
     model = Shop
     template_name = 'shop/detail.html'
     context_object_name = 'target_shop'
-
-    paginate_by = 10
 
     def get_context_data(self, **kwargs):
         shop = self.object
