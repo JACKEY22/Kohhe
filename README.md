@@ -8,6 +8,8 @@
 - subscription : 사용자가 원하는 계정과 카페 계정을 팔로우 
 - shop : 카페 계정 
 
+### model
+
 ### what I learned
 - 반응형 웹 디자인(미디어쿼리)
 
