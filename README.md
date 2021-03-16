@@ -1,4 +1,4 @@
-# 카페를 소개하는 게시판 [kohhee.shop]
+# 카페를 소개하는 게시판 [https://kohhee.shop]
 
 ### app
 - account : 사용자 계정
