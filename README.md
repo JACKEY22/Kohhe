@@ -3,6 +3,7 @@
 ### 스택
 - 언어 : python
 - 데이터베이스 : mariadb
+- 웹프레임워크 : django
 - 배포 : AWS EC2, AWS Route 53, dockerswarm
 
 ### 기능
