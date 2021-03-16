@@ -1,6 +1,6 @@
 # 카페를 소개하는 게시판 [https://kohhee.shop]
 
-### 스택
+### 적용기술
 - 언어 : python
 - 데이터베이스 : mariadb
 - 웹프레임워크 : django
