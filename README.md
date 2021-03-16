@@ -5,6 +5,7 @@
 - 데이터베이스 : mariadb
 - 웹프레임워크 : django
 - 배포 : AWS EC2, AWS Route 53, dockerswarm
+- 기타 : magicgrid
 
 ### 기능
 - 회원가입 - 로그인 - 로그아웃
