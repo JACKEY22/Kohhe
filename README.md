@@ -1,4 +1,4 @@
-# 개인 프로젝트 - 카페를 소개하는 게시판 [https://kohhee.shop]
+# 개인 프로젝트 - 카페를 소개하는 게시판 [https://kohhee.shop] (id:test01 pw:a12341234)
 
 ### 적용기술
 - 언어 : python
